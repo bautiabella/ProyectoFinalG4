@@ -1,9 +1,13 @@
 import React from 'react'
-import Home from "./src/screens/home"
+import { View } from 'react-native';
+import Home from "./src/screens/Login"
 
 export default function App() {
   return (
-    <Home/>
+    <View> 
+       <Login/>
+    </View>
+    
   );
 }
 
