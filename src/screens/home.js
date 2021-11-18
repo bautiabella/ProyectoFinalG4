@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from "react-native"
 
-export default function home() {
+export default function Home() {
 
     function HandlePress() { 
         console.log ('me clickearon')

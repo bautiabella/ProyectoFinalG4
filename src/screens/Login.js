@@ -12,15 +12,15 @@ export default class Login extends Component {
     render () { 
         return (
             <View>
-                <Text> Login </Text>
+                <Text> Pagina de Login </Text>
                 <TextInput
-                    style = {styles.container}
+                    style = {styles.emailentry}
                     keyboardType = "email-address"
                     placeholder = "escriba su email"
                     onChangeText = { texto => this.setState({email: texto})}
                     />
                    <TextInput
-                    style = {styles.field}
+                    style = {styles.passentry}
                     keyboardType = 'default'
                     placeholder = "escriba su contraseña"
                     secureTextEntry = {true}
@@ -36,10 +36,10 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create ({
-    container: { 
+    emailentry: { 
         fontSize: 20
     },
-    field: { 
+    passentry: { 
         backgroundColor: "red"
 
     }, 
