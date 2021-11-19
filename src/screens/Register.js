@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
 
-export default class Login extends Component { 
+export default class Register extends Component { 
     constructor(props) { 
         super(props); 
         this.state = {
@@ -12,7 +12,7 @@ export default class Login extends Component {
     render () { 
         return (
             <View>
-                <Text> Pagina de Login </Text>
+                <Text> Pagina de Register </Text>
                 <TextInput
                     style = {styles.emailentry}
                     keyboardType = "email-address"
@@ -27,8 +27,10 @@ export default class Login extends Component {
                     onChangeText = { texto => this.setState({contraseña: texto})}
                     />
                     <TouchableOpacity style = {styles.button} >
-                        <Text> Login </Text>
-
+                        <Text> Registrar </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style = {styles.button} >
+                         <Text> Ya estoy registrado</Text> 
                     </TouchableOpacity>
             </View> 
         )
@@ -37,13 +39,19 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create ({
     emailentry: { 
-        fontSize: 20
+        backgroundColor: "lightblue",
+        fontSize: 20,
+        margin: 30,
     },
     passentry: { 
-        backgroundColor: "red"
-
+        backgroundColor: "lightblue",
+        fontSize: 20,
+        margin: 30,
     }, 
     button: { 
-        border: "radius"
-    }
+        border: "radius",
+        backgroundColor: "grey",
+        margin: 15,
+    },
+    
 })
