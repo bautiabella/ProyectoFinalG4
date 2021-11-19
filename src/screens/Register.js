@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
+import { auth } from "../Firebase/config"
 
 export default class Register extends Component { 
     constructor(props) { 
         super(props); 
         this.state = {
             email: "",
-            contraseña: ""
+            contraseña: "", 
+            loggedIn: false, 
+            error: ""
         }
+    }
+    handleRegister() { 
+        auth.createUserWithEmailAndPassword(this.state.email, this.state.contraseña)
+        .then (response => {
+            console.log (response); 
+            alert ("¡El usuario ha sido registrado con éxito!")
+            this.setState ({
+                loggedIn: true
+            })
+        })
+        .catch ( error => {
+            console.log (error);
+            alert ("Se ha producido un error al realizar el registro. Inténtelo de nuevo más tarde.")
+            this.setState ({
+                error: "Fallo en el registro"
+            })
+        })
     }
     render () { 
         return (
-            <View>
-                <Text> Pagina de Register </Text>
+            <View style={styles.view}>
+                <Text style={styles.texto}> Página de Register </Text>
                 <TextInput
                     style = {styles.emailentry}
                     keyboardType = "email-address"
@@ -26,11 +46,8 @@ export default class Register extends Component {
                     secureTextEntry = {true}
                     onChangeText = { texto => this.setState({contraseña: texto})}
                     />
-                    <TouchableOpacity style = {styles.button} >
-                        <Text> Registrar </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {styles.button} >
-                         <Text> Ya estoy registrado</Text> 
+                    <TouchableOpacity style = {styles.button} onPress={() => this.handleRegister()}>
+                        <Text style = {styles.texto}> Registrarme </Text>
                     </TouchableOpacity>
             </View> 
         )
@@ -38,6 +55,13 @@ export default class Register extends Component {
 }
 
 const styles = StyleSheet.create ({
+    view: { 
+        flex: 1, 
+        alignItems: 'center'
+    }, 
+    texto: { 
+
+    }, 
     emailentry: { 
         backgroundColor: "lightblue",
         fontSize: 20,
