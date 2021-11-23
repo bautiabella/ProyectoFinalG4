@@ -8,27 +8,10 @@ export default class Login extends Component {
         this.state = {
             email: "",
             contraseña: "",
-            loggedIn: false, 
             error: ""
         }
     }
-    handleLogin() { 
-        auth.signInWithEmailAndPassword (this.state.email, this.state.contraseña)
-        .then (response => {
-            console.log (response); 
-            alert ("¡El usuario ha sido logueado con éxito!")
-            this.setState ({
-                loggedIn: true
-            })
-        })
-        .catch ( error => {
-            console.log (error);
-            alert ("Se ha producido un error al iniciar sesión. Inténtelo de nuevo más tarde.")
-            this.setState ({
-                error: "Fallo a la hora de iniciar sesión"
-            })
-        })
-    }
+    
     render () { 
         return (
             <View style={styles.view}>
@@ -45,7 +28,7 @@ export default class Login extends Component {
                     secureTextEntry = {true}
                     onChangeText = { texto => this.setState({contraseña: texto})}
                     />
-                    <TouchableOpacity style = {styles.button} onPress={() => this.handleLogin()}>
+                    <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogin(this.state.email, this.setState.password)}>
                         <Text style = {styles.texto}> Iniciar sesión </Text>
 
                     </TouchableOpacity>

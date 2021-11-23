@@ -8,28 +8,11 @@ export default class Register extends Component {
         this.state = {
             email: "",
             contraseña: "", 
-            loggedIn: false, 
             error: "",
             username: ""
         }
     }
-    handleRegister() { 
-        auth.createUserWithEmailAndPassword(this.state.email, this.state.contraseña)
-        .then (response => {
-            console.log (response); 
-            alert ("¡El usuario ha sido registrado con éxito!")
-            this.setState ({
-                loggedIn: true
-            })
-        })
-        .catch ( error => {
-            console.log (error);
-            alert ("Se ha producido un error al realizar el registro. Inténtelo de nuevo más tarde.")
-            this.setState ({
-                error: "Fallo en el registro"
-            })
-        })
-    }
+   
     render () { 
         return (
             <View style={styles.view}>
@@ -53,7 +36,7 @@ export default class Register extends Component {
                     secureTextEntry = {true}
                     onChangeText = { texto => this.setState({contraseña: texto})}
                     />
-                    <TouchableOpacity style = {styles.button} onPress={() => this.handleRegister()}>
+                    <TouchableOpacity style = {styles.button} onPress={() => this.props.handleRegister(this.state.username,this.state.email,this.state.contraseña)}>
                         <Text style = {styles.texto}> Registrarme </Text>
                     </TouchableOpacity>
             </View> 
