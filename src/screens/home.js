@@ -9,9 +9,9 @@ export default function Home() {
         return (
 <View> 
 <Text> 
-    Nicolas Mizrahi, Alan Chami y Bautista Abella
+Home
 </Text>
-  <TouchableOpacity onPress= {() => HandlePress()}> 
+  <TouchableOpacity style = {styles.button} onPress= {() => this.props.HandleLogout()}> 
     <Text> 
         Clickeame 
     </Text> 
