@@ -3,8 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Register from './Register';
 import Login from './Login';
-import Home from './home';
+import Home from './Home';
+import Perfil from './Perfil'
 import {auth} from '../Firebase/config'
+import CreatePost from "./CreatePost";
 
 export default class Menu extends Component{
     constructor (props){
@@ -82,10 +84,19 @@ export default class Menu extends Component{
       <Drawer.Navigator initialRouteName= "Login">
 
           {this.state.loggedIn === true ?
-          
+          <>
           <Drawer.Screen name= "Home">
-          {props => <Home {...props}  handleLogout={()=> this.handleLogout()}/>}
+          {props => <Home {...props} />}
+          </Drawer.Screen> 
+
+          <Drawer.Screen name= "Perfil">
+          {props => <Perfil {...props}  handleLogout={()=> this.handleLogout()}/>}
           </Drawer.Screen>
+
+          <Drawer.Screen name= "CreatePost">
+          {props => <CreatePost {...props}/>}
+          </Drawer.Screen>
+          </>
         :
         <>
         <Drawer.Screen name= "Register">

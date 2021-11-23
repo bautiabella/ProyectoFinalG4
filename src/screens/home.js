@@ -1,22 +1,40 @@
-import React from 'react'
-import { View, Text, TouchableOpacity } from "react-native"
+import React, {Component} from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function Home() {
-
-    function HandlePress() { 
-        console.log ('me clickearon')
-    }
-        return (
-<View> 
-<Text> 
-Home
-</Text>
-  <TouchableOpacity style = {styles.button} onPress= {() => this.props.HandleLogout()}> 
-    <Text> 
-        Clickeame 
-    </Text> 
-  </TouchableOpacity>
-</View>
-
-) 
-} 
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      };
+  }  
+   
+  render (){
+    return (
+      <View>
+        <Text>Home</Text>
+      </View>
+    )
+  }
+}
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    alignItems: "center",
+  },
+  texto: {},
+  emailentry: {
+    backgroundColor: "lightblue",
+    fontSize: 20,
+    margin: 30,
+  },
+  passentry: {
+    backgroundColor: "lightblue",
+    fontSize: 20,
+    margin: 30,
+  },
+  button: {
+    border: "radius",
+    backgroundColor: "grey",
+    margin: 15,
+  },
+});
