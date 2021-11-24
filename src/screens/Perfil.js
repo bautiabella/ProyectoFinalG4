@@ -20,12 +20,10 @@ export default class Perfil extends Component {
           Última fecha de ingreso: {auth.currentUser.metadata.lastSignInTime}
         </Text>
         
-        <TouchableOpacity
-          
-          onPress={() => this.props.handleLogout()}
-        >
-          <Text>Clickeame</Text>
+        <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()} >
+          <Text style = {styles.texto}> Cerrar sesión </Text>
         </TouchableOpacity>
+        
       </View>
     )
   }
