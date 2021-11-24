@@ -2,12 +2,14 @@ import { description } from 'commander';
 import React, {Component} from 'react';
 import { Text, TextInput, TouchableOpacity, View, StyleSheet} from 'react-native';
 import { auth, db } from '../Firebase/config';
-
+import MyCamera from '../components/MyCamera'
 export default class CreatePost extends Component {
     constructor(props){
         super(props);
         this.state = {
-            comment: ""
+            comment: "",
+            photo: "",
+            showCamera: true
         }
     }
     
@@ -37,6 +39,11 @@ export default class CreatePost extends Component {
     render(){
         
         return(
+            <>
+            {this.state.showCamera ?
+            <MyCamera/>
+        :
+        
             <View style={styles.container}>
                 <TextInput
                     style={styles.field}
@@ -52,8 +59,9 @@ export default class CreatePost extends Component {
                     <Text style = {styles.text}> Post </Text>
                 </TouchableOpacity>
             </View>
-            
-        )
+           }
+         </>
+           )
     }
 }
 

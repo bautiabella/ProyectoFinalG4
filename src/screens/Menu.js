@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, {Component } from "react";
+//import React, {xpo } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Register from './Register';

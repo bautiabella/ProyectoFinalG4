@@ -1,4 +1,5 @@
 import { Camera } from "expo-camera";
+import react from 'react'
 import React, { Component } from "react";
 import {
   Text,
@@ -11,18 +12,20 @@ import {
 import { auth, db, storage } from "../Firebase/config";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default class CreatePost extends Component {
+
+export default class MyCamera extends React.Component {
   constructor(props) {
     super(props);
     this.Camera;
     this.state = {
-      photo: null,
+      photo: '',
       permission: false,
-    };
+    }
   } // Constructor
 
   componentDidMount() {
-    Camera.requestCameraPermissionsAsync().then((response) => {
+    Camera.requestCameraPermissionsAsync()
+    .then((response) => {
       console.log(response);
       this.setState({
         permission: response.granted,
@@ -53,7 +56,7 @@ export default class CreatePost extends Component {
             this.props.onImageUpload(url);
           });
         });
-      });
+      }); 
   }
 
   onReject() {
@@ -65,9 +68,10 @@ export default class CreatePost extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.photo ? (
+        {
+        this.state.photo ? 
           <>
-            <Image style={styles.preview} source={{ uri: this.state.photo }} />
+            {/*<Image style={styles.preview} source={{ uri: this.state.photo }} />
             <View style={styles.uploadImage}>
               <TouchableOpacity onPress={() => this.uploadImage()}>
                 <Ionicons name="checkmark-circle-outline" size="50px" color="green"/>
@@ -75,9 +79,9 @@ export default class CreatePost extends Component {
               <TouchableOpacity onPress={() => this.onReject()}>
                 <Ionicons name="close-circle-outline" size="50px" color="red"/>
               </TouchableOpacity>
-            </View>
+        </View> */}
           </>
-        ) : (
+         : 
           <>
             <Camera
               style={styles.camera}
@@ -98,7 +102,7 @@ export default class CreatePost extends Component {
   }
 } // Create Post
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
