@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native'
-import { auth, db } from '../firebase/config';
+import { auth, db } from '../Firebase/config';
 import firebase from 'firebase';
 
 export default class Post extends Component{
