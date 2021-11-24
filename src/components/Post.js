@@ -57,6 +57,20 @@ export default class Post extends Component{
         })
     }
     
+    showModal(){
+        console.log('Mostrando modal')
+        this.setState({
+            showModal: true,
+        })
+    }
+    
+    closeModal(){
+        console.log('Cerrando modal')
+        this.setState({
+            showModal: false,
+        })
+    }
+
     render(){
 
         console.log(this.props.item);
@@ -79,6 +93,33 @@ export default class Post extends Component{
                             Unlike
                         </Text>
                     </TouchableOpacity>
+                }
+
+                <TouchableOpacity onPress={()=>{this.showModal()}}>
+                    <Text>
+                        Ver comentarios
+                    </Text>
+                </TouchableOpacity>
+                
+                {
+                    this.state.showModal ?
+
+                        <Modal 
+                        animationType = "fade"
+                        transparent = {false}
+                        visible = {this.state.showModal}
+                        style = {styles.modal}
+                        >
+                            <View style={styles.modalView}>
+                                <TouchableOpacity style={styles.closeModal} onPress={()=>{this.closeModal()}}>
+                                        <Text style={styles.modalText} >X</Text>
+                                </TouchableOpacity>
+                                <Text> Comentario número 1! </Text>
+                                <Text> Comentario número 2! </Text>
+                            </View>
+                        </Modal>
+                        :
+                        null
                 }
             </View>
         )
