@@ -1,14 +1,14 @@
 import { description } from 'commander';
 import React, {Component} from 'react';
-import { Text, TextInput, TouchableOpacity, View, StyleSheet} from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image} from 'react-native';
 import { auth, db } from '../Firebase/config';
-import MyCamera from '../components/MyCamera'
+import MyCamera, { styles } from '../components/MyCamera'
 export default class CreatePost extends Component {
     constructor(props){
         super(props);
         this.state = {
             comment: "",
-            photo: "",
+            photo: '',
             showCamera: true
         }
     }
@@ -20,7 +20,8 @@ export default class CreatePost extends Component {
             email: auth.currentUser.email,
             createdAt: Date.now(),
             likes: [],
-            comments: []
+            comments: [],
+            photo: this.state.photo
         })
         .then(response => {
             console.log(response); 
@@ -36,15 +37,30 @@ export default class CreatePost extends Component {
         })
 
     }
+
+    guardarFoto(url){
+        this.setState({
+            photo: url,
+            showCamera: false,
+
+        })
+    }
     render(){
         
         return(
             <>
             {this.state.showCamera ?
-            <MyCamera/>
-        :
+            <MyCamera savePhoto = {(url)=>this.guardarFoto(url)}/>
+            :
+            
+        <>
         
             <View style={styles.container}>
+            <Image
+        source = {{uri: this.state.photo}}
+        style = {styles.imagen}
+
+          />
                 <TextInput
                     style={styles.field}
                     keyboardType='default'
@@ -59,23 +75,27 @@ export default class CreatePost extends Component {
                     <Text style = {styles.text}> Post </Text>
                 </TouchableOpacity>
             </View>
+
+            </>
            }
+            
          </>
-           )
+        )
     }
 }
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center'
     },
     field: {
         width: '80%',
-        backgroundColor: "#09009B",
+        backgroundColor: "#FFA400",
         color: '#FFA400',
         padding: 10,
         marginVertical: 10
+      
     },
     button: {
         width: '30%',

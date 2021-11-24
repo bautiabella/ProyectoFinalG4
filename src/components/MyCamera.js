@@ -1,15 +1,8 @@
 import { Camera } from "expo-camera";
 import react from 'react'
 import React, { Component } from "react";
-import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  Image,
-} from "react-native";
-import { auth, db, storage } from "../Firebase/config";
+import {Text,TextInput,TouchableOpacity,View,StyleSheet,Image,} from "react-native";
+import { db,storage } from "../Firebase/config";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 
@@ -44,19 +37,24 @@ export default class MyCamera extends React.Component {
 
   uploadImage() {
     fetch(this.state.photo)
-      .then((res) => res.blob())
+      .then(res => {
+        return res.blob();
+      })
       .then((image) => {
         const ref = storage.ref(`camera/${Date.now()}.jpg`);
-        ref.put(image).then(() => {
-          ref.getDownloadURL().then((url) => {
+        ref.put(image)
+        .then(() => {
+
+          ref.getDownloadURL()
+          .then(url => {
             console.log(url);
             this.setState({
-              photo: "",
-            });
-            this.props.onImageUpload(url);
-          });
-        });
-      }); 
+              photo: '',
+            })
+            this.props.savePhoto(url);
+          })
+        })
+      })
   }
 
   onReject() {
@@ -71,7 +69,7 @@ export default class MyCamera extends React.Component {
         {
         this.state.photo ? 
           <>
-            {/*<Image style={styles.preview} source={{ uri: this.state.photo }} />
+            <Image style={styles.preview} source={{ uri: this.state.photo }} />
             <View style={styles.uploadImage}>
               <TouchableOpacity onPress={() => this.uploadImage()}>
                 <Ionicons name="checkmark-circle-outline" size="50px" color="green"/>
@@ -79,7 +77,7 @@ export default class MyCamera extends React.Component {
               <TouchableOpacity onPress={() => this.onReject()}>
                 <Ionicons name="close-circle-outline" size="50px" color="red"/>
               </TouchableOpacity>
-        </View> */}
+        </View> 
           </>
          : 
           <>
@@ -96,7 +94,7 @@ export default class MyCamera extends React.Component {
               />
             </TouchableOpacity>
           </>
-        )}
+        }
       </View>
     );
   }
