@@ -5,6 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Register from './Register';
 import Login from './Login';
 import Home from './Home';
+import Search from './Search';
 import Perfil from './Perfil'
 import {auth} from '../Firebase/config'
 import CreatePost from "./CreatePost";
@@ -96,6 +97,9 @@ export default class Menu extends Component{
 
           <Drawer.Screen name= "CreatePost">
           {props => <CreatePost {...props}/>}
+          </Drawer.Screen>
+          <Drawer.Screen name= "Search">
+          {props => <Search {...props}/>}
           </Drawer.Screen>
           </>
         :

@@ -1,20 +1,20 @@
 import React, {Component} from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
-import {auth,db} from '../Firebase/config';
-import Post from '../components/Post'
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, TextInput } from "react-native";
+import {auth,db} from '../Firebase/config'
+import Post from '../components/Post';
 
 export default class Perfil extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      input: "",
       posts: []
       };
   } 
-
-  componentDidMount (){
+  onSearch (){
     db.collection('posts')
 
-    .where('owner', '==', auth.currentUser.displayName)
+    .where('owner', '==', this.state.input)
     
     .onSnapshot(
       docs =>{
@@ -37,23 +37,27 @@ export default class Perfil extends Component {
   render (){
     return (
       <View>
-        <Text>Mi Perfil</Text>
-        <Text style={styles.text}>Usuario: {auth.currentUser.displayName}</Text>
-        <Text style={styles.text}>E-mail: {auth.currentUser.email}</Text>
-        <Text style={styles.text}>
-          Última fecha de ingreso: {auth.currentUser.metadata.lastSignInTime}
-        </Text>
         
-        <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()} >
-          <Text style = {styles.texto}> Cerrar sesión </Text>
-        </TouchableOpacity>
+        <TextInput
+                    style={styles.field}
+                    keyboardType='default'
+                    placeholder= "Buscar usuario"
+                    onChangeText={text => this.setState({input: text })}
+                    value= {this.state.input}
+                   
+                />
 
+        <TouchableOpacity style = {styles.button} onPress={() => this.onSearch()} >
+          <Text style = {styles.texto}> Buscar</Text>
+        </TouchableOpacity>
+        
         <FlatList 
         data= {this.state.posts}
         keyExtractor = {post => post.id.toString()}
         renderItem={({ item }) =>
         <Post item = {item}> </Post> }
         />
+
       </View>
     )
   }
