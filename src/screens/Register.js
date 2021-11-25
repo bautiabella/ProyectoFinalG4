@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
+import {Text, TextInput, TouchableOpacity, View, StyleSheet, ScrollView} from "react-native";
 import { auth } from "../Firebase/config"
 
 export default class Register extends Component { 
@@ -15,6 +15,7 @@ export default class Register extends Component {
    
     render () { 
         return (
+            <ScrollView>
             <View style={styles.view}>
                 <Text style={styles.texto}> Página de Register </Text>
                 <TextInput
@@ -39,7 +40,8 @@ export default class Register extends Component {
                     <TouchableOpacity style = {styles.button} onPress={() => this.props.handleRegister(this.state.email,this.state.contraseña,this.state.username)}>
                         <Text style = {styles.texto}> Registrarme </Text>
                     </TouchableOpacity>
-            </View> 
+            </View>
+            </ScrollView>
         )
     }
 }

@@ -1,6 +1,6 @@
 import { description } from 'commander';
 import React, {Component} from 'react';
-import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image} from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image, ScrollView} from 'react-native';
 import { auth, db } from '../Firebase/config';
 import MyCamera from '../components/MyCamera'
 
@@ -51,13 +51,14 @@ export default class CreatePost extends Component {
     render(){
         
         return(
+            
             <>
             {this.state.showCamera ?
             <MyCamera savePhoto = {(url)=>this.guardarFoto(url)}/>
             :
-            
+         
         <>
-        
+        <ScrollView> 
             <View style={styles.container}>
             <Image
         source = {{uri: this.state.photo}}
@@ -78,11 +79,12 @@ export default class CreatePost extends Component {
                     <Text style = {styles.text}> Post </Text>
                 </TouchableOpacity>
             </View>
-
+            </ScrollView>
             </>
            }
             
          </>
+         
         )
     }
 }
@@ -90,11 +92,12 @@ export default class CreatePost extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: "lightblue",
     },
     field: {
         width: '80%',
-        backgroundColor: "#FFA400",
+        backgroundColor: "lightgrey",
         color: 'black',
         padding: 10,
         marginVertical: 10

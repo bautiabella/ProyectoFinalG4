@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, ScrollView} from "react-native";
 import {auth,db} from '../Firebase/config';
 import Post from '../components/Post'
 
@@ -36,6 +36,7 @@ export default class Perfil extends Component {
   }
   render (){
     return (
+      <ScrollView>
       <View>
         <Text>Mi Perfil</Text>
         <Text style={styles.text}>Usuario: {auth.currentUser.displayName}</Text>
@@ -55,6 +56,7 @@ export default class Perfil extends Component {
         <Post item = {item}> </Post> }
         />
       </View>
+      </ScrollView>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, ScrollView } from "react-native";
 import Post from "../components/Post"
 import {db} from "../Firebase/config"
 
@@ -8,6 +8,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       posts: []
+      
       }
   }  
    
@@ -31,6 +32,7 @@ export default class Home extends Component {
 
   render (){
     return (
+      <ScrollView>
       <View>
         <Text>Home</Text>
         <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()} >
@@ -44,7 +46,7 @@ export default class Home extends Component {
         <Post item = {item}> </Post> }
         />
   </View>
-  
+  </ScrollView>
     )
   }
 }
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   },
   button: {
     border: "radius",
-    backgroundColor: "grey",
+    backgroundColor: "lightgrey",
     margin: 15,
   },
 });

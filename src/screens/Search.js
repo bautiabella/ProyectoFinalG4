@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, TextInput, ScrollView} from "react-native";
 import {auth,db} from '../Firebase/config'
 import Post from '../components/Post';
 
@@ -36,6 +36,7 @@ export default class Perfil extends Component {
   }
   render (){
     return (
+    <ScrollView>
       <View>
         
         <TextInput
@@ -59,6 +60,7 @@ export default class Perfil extends Component {
         />
 
       </View>
+      </ScrollView>
     )
   }
 }
@@ -82,5 +84,13 @@ const styles = StyleSheet.create({
     border: "radius",
     backgroundColor: "grey",
     margin: 15,
+    alignSelf: 'center',
+
   },
+  field: {
+    backgroundColor: "lightblue",
+    margin: 15,
+    borderColor: 'blue',
+    
+  }
 });

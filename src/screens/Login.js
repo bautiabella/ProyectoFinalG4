@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
+import {Text, TextInput, TouchableOpacity, View, StyleSheet, ScrollView} from "react-native";
 import { auth } from "../Firebase/config"
 
 export default class Login extends Component { 
@@ -14,6 +14,7 @@ export default class Login extends Component {
     
     render () { 
         return (
+            <ScrollView>
             <View style={styles.view}>
                 <Text style={styles.texto}> Inicio de sesión </Text>
                 <TextInput
@@ -33,6 +34,7 @@ export default class Login extends Component {
 
                     </TouchableOpacity>
             </View> 
+            </ScrollView>
         )
     }
 }
