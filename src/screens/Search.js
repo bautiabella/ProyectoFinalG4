@@ -37,7 +37,7 @@ export default class Perfil extends Component {
   render (){
     return (
     <ScrollView>
-      <View>
+      <View style = {styles.container}>
         
         <TextInput
                     style={styles.field}
@@ -65,21 +65,12 @@ export default class Perfil extends Component {
   }
 }
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
     alignItems: "center",
-  },
-  texto: {},
-  emailentry: {
     backgroundColor: "lightblue",
-    fontSize: 20,
-    margin: 30,
   },
-  passentry: {
-    backgroundColor: "lightblue",
-    fontSize: 20,
-    margin: 30,
-  },
+  
   button: {
     border: "radius",
     backgroundColor: "grey",
@@ -88,7 +79,7 @@ const styles = StyleSheet.create({
 
   },
   field: {
-    backgroundColor: "lightblue",
+    backgroundColor: "lightgrey",
     margin: 15,
     borderColor: 'blue',
     

@@ -16,7 +16,7 @@ export default class Register extends Component {
     render () { 
         return (
             <ScrollView>
-            <View style={styles.view}>
+            <View style = {styles.container}>
                 <Text style={styles.texto}> Página de Register </Text>
                 <TextInput
                     style = {styles.emailentry}
@@ -47,26 +47,27 @@ export default class Register extends Component {
 }
 
 const styles = StyleSheet.create ({
-    view: { 
-        flex: 1, 
-        alignItems: 'center'
+    container: {
+        flex: 1,
+        alignItems: "center",
+        backgroundColor: "lightblue",
     }, 
     texto: { 
 
     }, 
     emailentry: { 
-        backgroundColor: "lightblue",
+        backgroundColor: "lightgrey",
         fontSize: 20,
         margin: 30,
     },
     passentry: { 
-        backgroundColor: "lightblue",
+        backgroundColor: "lightgrey",
         fontSize: 20,
         margin: 30,
     }, 
     button: { 
         border: "radius",
-        backgroundColor: "grey",
+        backgroundColor: "lightgrey",
         margin: 15,
     },
     

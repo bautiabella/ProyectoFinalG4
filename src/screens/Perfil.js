@@ -37,7 +37,7 @@ export default class Perfil extends Component {
   render (){
     return (
       <ScrollView>
-      <View>
+      <View style = {styles.container}>
         <Text>Mi Perfil</Text>
         <Text style={styles.text}>Usuario: {auth.currentUser.displayName}</Text>
         <Text style={styles.text}>E-mail: {auth.currentUser.email}</Text>
@@ -61,24 +61,15 @@ export default class Perfil extends Component {
   }
 }
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
     alignItems: "center",
-  },
-  texto: {},
-  emailentry: {
     backgroundColor: "lightblue",
-    fontSize: 20,
-    margin: 30,
   },
-  passentry: {
-    backgroundColor: "lightblue",
-    fontSize: 20,
-    margin: 30,
-  },
+  
   button: {
     border: "radius",
-    backgroundColor: "grey",
+    backgroundColor: "lightgrey",
     margin: 15,
   },
 });

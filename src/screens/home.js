@@ -33,7 +33,7 @@ export default class Home extends Component {
   render (){
     return (
       <ScrollView>
-      <View>
+      <View style = {styles.container}>
         <Text>Home</Text>
         <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()} >
           <Text style = {styles.texto}> Cerrar sesión </Text>
@@ -51,24 +51,18 @@ export default class Home extends Component {
   }
 }
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
     alignItems: "center",
-  },
-  texto: {},
-  emailentry: {
     backgroundColor: "lightblue",
-    fontSize: 40,
-    margin: 40,
   },
-  passentry: {
-    backgroundColor: "lightblue",
-    fontSize: 20,
-    margin: 30,
+  texto: {
+    
   },
   button: {
     border: "radius",
     backgroundColor: "lightgrey",
     margin: 15,
+    width: 1000,
   },
 });
