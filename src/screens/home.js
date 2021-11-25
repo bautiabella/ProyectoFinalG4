@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "lightblue",
+    textAlign: 'center'
   },
   texto: {
     
@@ -64,5 +65,6 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     margin: 15,
     width: 1000,
+    textAlign: 'center'
   },
 });

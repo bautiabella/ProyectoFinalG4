@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "lightblue",
+    textAlign: 'center'
   },
   
   button: {
@@ -76,12 +77,12 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     margin: 15,
     alignSelf: 'center',
-
+    textAlign: 'center'
   },
   field: {
     backgroundColor: "lightgrey",
     margin: 15,
     borderColor: 'blue',
-    
+    textAlign: 'center'
   }
 });

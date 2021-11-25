@@ -51,24 +51,28 @@ const styles = StyleSheet.create ({
         flex: 1,
         alignItems: "center",
         backgroundColor: "lightblue",
+        textAlign: 'center'
     }, 
     texto: { 
-
+        textAlign: 'center'
     }, 
     emailentry: { 
         backgroundColor: "lightgrey",
         fontSize: 20,
         margin: 30,
+        textAlign: 'center'
     },
     passentry: { 
         backgroundColor: "lightgrey",
         fontSize: 20,
         margin: 30,
+        textAlign: 'center'
     }, 
     button: { 
         border: "radius",
         backgroundColor: "lightgrey",
         margin: 15,
+        textAlign: 'center'
     },
     
 })

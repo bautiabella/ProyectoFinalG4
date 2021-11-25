@@ -94,22 +94,26 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: "lightblue",
+        textAlign: 'center'
     },
     field: {
         width: '80%',
         backgroundColor: "lightgrey",
         color: 'black',
         padding: 10,
-        marginVertical: 10
+        marginVertical: 10,
+        textAlign: 'center'
       
     },
     button: {
         width: '30%',
         backgroundColor: "lightgrey",
+        textAlign: 'center',
     },
     text: {
         color: '#FFA400',
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'center',
     },
     imagen: {
         height: 600,
