@@ -31,7 +31,7 @@ export default class Comments extends Component {
     
     render () { 
         return (
-            <View style={styles.view}>
+            <View style={styles.container}>
 
                  <Modal 
                         animationType = "fade"
@@ -44,14 +44,14 @@ export default class Comments extends Component {
                  <TouchableOpacity style={styles.closeModal} onPress={()=>{this.props.closeModal()}}>
                                         <Text style={styles.modalText} >X</Text>
                                 </TouchableOpacity>
-                <FlatList 
+                <FlatList style = {styles.container}
         data= {this.props.comentarios}
         keyExtractor = {comentario => comentario.id.toString()}
         renderItem={({ item }) =>
     <Text> {item.owner}: {item.comment} </Text>    
     }
         />
-                   <TextInput style = {styles.passentry}
+                   <TextInput style = {styles.comentbox}
                     keyboardType = 'default'
                     placeholder = "escriba un comenatario"
                     onChangeText = { texto => this.setState({comentario: texto})}
@@ -68,26 +68,19 @@ export default class Comments extends Component {
 }
 
 const styles = StyleSheet.create ({
-    view: { 
+    container: { 
         flex: 1, 
-        alignItems: 'center'
-    }, 
-    texto: { 
-
-    }, 
-    emailentry: { 
+        alignItems: 'center',
         backgroundColor: "lightblue",
-        fontSize: 20,
-        margin: 30,
-    },
-    passentry: { 
-        backgroundColor: "lightblue",
+    }, 
+    comentbox: { 
+        backgroundColor: "lightgrey",
         fontSize: 20,
         margin: 30,
     }, 
     button: { 
         border: "radius",
-        backgroundColor: "grey",
+        backgroundColor: "lightgrey",
         margin: 15,
     },
     
