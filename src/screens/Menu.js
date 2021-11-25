@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Register from './Register';
 import Login from './Login';
-import Home from './Home';
+import Home from './home'
 import Perfil from './Perfil'
 import {auth} from '../Firebase/config'
 import CreatePost from "./CreatePost";

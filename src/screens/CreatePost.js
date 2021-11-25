@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image} from 'react-native';
 import { auth, db } from '../Firebase/config';
 import MyCamera from '../components/MyCamera'
+
 export default class CreatePost extends Component {
     constructor(props){
         super(props);
@@ -27,7 +28,9 @@ export default class CreatePost extends Component {
             console.log(response); 
             alert ('posteo realizado')
             this.setState ({
-                comment: ""
+                comment: "",
+                photo: '',
+                showCamera: true
             })
             this.props.navigation.navigate ('Home');
         }) 

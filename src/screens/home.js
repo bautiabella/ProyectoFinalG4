@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
 import Post from "../components/Post"
-import { db } from "../Firebase/config";
+import {db} from "../Firebase/config"
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Home extends Component {
   }  
    
   componentDidMount (){
-    db.collection('posts').onSnapshot(
+    db.collection('posts').orderBy("createdAt", "desc").onSnapshot(
       docs =>{
         let postsAux= []
         docs.forEach(doc => { 
@@ -36,6 +36,7 @@ export default class Home extends Component {
         <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()} >
           <Text style = {styles.texto}> Cerrar sesión </Text>
         </TouchableOpacity>
+        
         <FlatList 
         data= {this.state.posts}
         keyExtractor = {post => post.id.toString()}
@@ -43,6 +44,7 @@ export default class Home extends Component {
         <Post item = {item}> </Post> }
         />
   </View>
+  
     )
   }
 }

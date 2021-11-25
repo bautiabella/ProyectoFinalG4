@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native'
 import { auth, db } from '../Firebase/config';
 import firebase from 'firebase';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default class Post extends Component{
 
