@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     field: {
         width: '80%',
         backgroundColor: "#FFA400",
-        color: '#FFA400',
+        color: 'black',
         padding: 10,
         marginVertical: 10
       
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     imagen: {
         height: 600,
-        width: '90%'
+        width: '70%'
     },
 
 })

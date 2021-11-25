@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native'
 import { auth, db } from '../Firebase/config';
 import firebase from 'firebase';
-import { TextInput } from 'react-native-gesture-handler';
+import Comments from '../components/Comments';
 
 export default class Post extends Component{
 
@@ -76,7 +76,8 @@ export default class Post extends Component{
 
         console.log(this.props.item);
         return(
-            <View stlye={styles.container}>
+            <View style={styles.container}>
+                <Image style={styles.image} source={{ uri: this.props.item.data.photo }} />
                 <Text>{this.props.item.data.description}</Text>
                 <Text>{this.props.item.data.createdAt}</Text>
                 <Text>{this.props.item.data.owner}</Text>
@@ -105,22 +106,14 @@ export default class Post extends Component{
                 {
                     this.state.showModal ?
 
-                        <Modal 
-                        animationType = "fade"
-                        transparent = {false}
-                        visible = {this.state.showModal}
-                        style = {styles.modal}
-                        >
-                            <View style={styles.modalView}>
-                                <TouchableOpacity style={styles.closeModal} onPress={()=>{this.closeModal()}}>
-                                        <Text style={styles.modalText} >X</Text>
-                                </TouchableOpacity>
-                                <Text> Comentario número 1! </Text>
-                                <Text> Comentario número 2! </Text>
-                            </View>
-                        </Modal>
-                        :
-                        null
+                    <Comments 
+                    idPost = {this.props.item.id }
+                    comentarios = {this.props.item.data.comments}
+                    closeModal= {()=> this.closeModal ()}
+                    /> 
+
+                        
+                        :null
                 }
             </View>
         )
@@ -130,7 +123,8 @@ export default class Post extends Component{
 
 const styles = StyleSheet.create({
     image: {
-        height: 200,
+        height: 350,
+        width: 300
     
     },
     container:{
@@ -139,5 +133,8 @@ const styles = StyleSheet.create({
         padding: 10,
         
         
-    }
+    }, preview: {
+        flex: 1,
+        width: "100%",
+      }
 })
