@@ -65,11 +65,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "lightblue",
+    textAlign: 'center'
   },
   
   button: {
     border: "radius",
     backgroundColor: "lightgrey",
     margin: 15,
+    textAlign: 'center'
   },
 });

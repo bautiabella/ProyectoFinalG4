@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10,
         backgroundColor: "lightblue",
+        textAlign: 'center',
         
         
     }, preview: {
