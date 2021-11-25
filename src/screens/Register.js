@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View, StyleSheet, ScrollView} from "react-native";
-import { auth } from "../Firebase/config"
+
 
 export default class Register extends Component { 
     constructor(props) { 
@@ -8,12 +8,16 @@ export default class Register extends Component {
         this.state = {
             email: "",
             contraseña: "", 
-            error: "",
             username: ""
         }
     }
-   
-    render () { 
+
+    handleRegister(){ 
+        if (this.state.email !== "" && this.state.contraseña !== "" && this.state.username !== ""){
+            this.props.handleRegister(this.state.email, this.state.contraseña, this.state.username)
+        }
+     }
+    render (){ 
         return (
             <ScrollView>
             <View style = {styles.container}>
@@ -37,7 +41,7 @@ export default class Register extends Component {
                     secureTextEntry = {true}
                     onChangeText = { texto => this.setState({contraseña: texto})}
                     />
-                    <TouchableOpacity style = {styles.button} onPress={() => this.props.handleRegister(this.state.email,this.state.contraseña,this.state.username)}>
+                    <TouchableOpacity style = {styles.button} onPress={() => this.handleRegister()}>
                         <Text style = {styles.texto}> Registrarme </Text>
                     </TouchableOpacity>
             </View>
