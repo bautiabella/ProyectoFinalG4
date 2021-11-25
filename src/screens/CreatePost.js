@@ -2,7 +2,7 @@ import { description } from 'commander';
 import React, {Component} from 'react';
 import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image} from 'react-native';
 import { auth, db } from '../Firebase/config';
-import MyCamera, { styles } from '../components/MyCamera'
+import MyCamera from '../components/MyCamera'
 export default class CreatePost extends Component {
     constructor(props){
         super(props);
@@ -84,7 +84,7 @@ export default class CreatePost extends Component {
     }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center'
@@ -106,7 +106,8 @@ const style = StyleSheet.create({
         fontSize: 20
     },
     imagen: {
-        height: 300,
+        height: 600,
         width: '90%'
-    }
+    },
+
 })
